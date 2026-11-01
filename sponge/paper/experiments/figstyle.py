@@ -89,11 +89,13 @@ def wavefield_grid(rows, row_labels, col_titles, vmax, edges, notes=None,
     nr, nc = len(rows), len(rows[0])
     w = TEXTWIDTH
     pw = (w - 0.55) / nc                      # panel width (in), room for row labels + colour bar
-    h = height or nr * pw + 0.35
+    h = height or nr * pw + 0.35 + ((0.22 if nc <= 5 else 0.34) * nr if notes else 0)
     fig = plt.figure(figsize=(w, h))
     gs = fig.add_gridspec(nr, nc + 1, width_ratios=[1] * nc + [0.05],
                           left=0.06, right=0.935, bottom=0.02, top=1 - 0.28 / h,
-                          wspace=0.06, hspace=0.06)
+                          wspace=0.06, hspace=(0.15 if nc <= 5 else 0.30) if notes else 0.06)
+    if notes:
+        gs.update(bottom=0.2 / h)
     im = None
     axs = []
     for i in range(nr):
@@ -113,9 +115,8 @@ def wavefield_grid(rows, row_labels, col_titles, vmax, edges, notes=None,
             if j == 0:
                 ax.set_ylabel(row_labels[i], labelpad=4)
             if notes and notes[i][j]:
-                ax.text(0.5, 0.035, notes[i][j], transform=ax.transAxes, ha="center",
-                        va="bottom", fontsize=6.5 if nc > 5 else 7,
-                        bbox=dict(boxstyle="square,pad=0.15", fc="white", ec="none", alpha=0.85))
+                ax.text(0.5, -0.025, notes[i][j], transform=ax.transAxes, ha="center",
+                        va="top", fontsize=7 if nc > 5 else 7.5, linespacing=1.1)
             rax.append(ax)
         axs.append(rax)
     cax = fig.add_subplot(gs[:, nc])

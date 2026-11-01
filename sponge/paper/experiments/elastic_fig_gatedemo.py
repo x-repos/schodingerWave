@@ -86,11 +86,11 @@ def main():
     vmax = float(np.abs(ref[0]).max())   # peak of the first propagated snapshot
     top = [z0.T] + [g.T for g in gate]
     bot = [z0.T] + [r.T for r in ref]
-    notes = [[""] + [rf"${fs.sci(runs[(GRID, T)]['rel_error'])}$" for T in TS],
-             [""] + [rf"$\mathcal{{E}}={fs.sci(runs[(GRID, T)]['energy_ratio_ref'])}$" for T in TS]]
+    notes = [[r"error" "\n" r"$0$"] + [rf"error" "\n" rf"${fs.sci(runs[(GRID, T)]['rel_error'])}$" for T in TS],
+             [r"energy $1$"] + [rf"energy ${runs[(GRID, T)]['energy_ratio_ref']:.2g}$" for T in TS]]
     titles = [r"$t=0$"] + [rf"$t={T:g}$" for T in TS]
     fig, axs = fs.wavefield_grid([top, bot], ["quantum\ncircuit", "classical\nPDE"], titles,
-                                 vmax, (NPML - 0.5, N - NPML - 0.5),
+                                 vmax, (NPML - 0.5, N - NPML - 0.5), notes=notes,
                                  cbar_label=r"$\tilde v_x/\tilde v_{\mathrm{ref}}$")
     fs.panel_label(axs[0][0], "(a)", x=0.05, y=0.95)
     fs.panel_label(axs[1][0], "(b)", x=0.05, y=0.95)
