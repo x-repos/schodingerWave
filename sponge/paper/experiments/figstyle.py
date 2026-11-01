@@ -119,6 +119,11 @@ def wavefield_grid(rows, row_labels, col_titles, vmax, edges, notes=None,
             rax.append(ax)
         axs.append(rax)
     cax = fig.add_subplot(gs[:, nc])
+    fig.canvas.draw()                         # apply the equal aspect, then match the bar to the panels
+    top = axs[0][-1].get_position()
+    bot = axs[-1][-1].get_position()
+    cpos = cax.get_position()
+    cax.set_position([cpos.x0, bot.y0, cpos.width, top.y1 - bot.y0])
     cb = fig.colorbar(im, cax=cax)
     cb.set_label(cbar_label, labelpad=2)
     cb.outline.set_linewidth(0.5)
