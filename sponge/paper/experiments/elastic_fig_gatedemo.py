@@ -90,7 +90,7 @@ def main():
              [""] + [rf"$\mathcal{{E}}={fs.sci(runs[(GRID, T)]['energy_ratio_ref'])}$" for T in TS]]
     titles = [r"$t=0$"] + [rf"$t={T:g}$" for T in TS]
     fig, axs = fs.wavefield_grid([top, bot], ["quantum\ncircuit", "classical\nPDE"], titles,
-                                 vmax, (NPML - 0.5, N - NPML - 0.5), notes=notes,
+                                 vmax, (NPML - 0.5, N - NPML - 0.5),
                                  cbar_label=r"$\tilde v_x/\tilde v_{\mathrm{ref}}$")
     fs.panel_label(axs[0][0], "(a)", x=0.05, y=0.95)
     fs.panel_label(axs[1][0], "(b)", x=0.05, y=0.95)

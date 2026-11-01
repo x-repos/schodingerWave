@@ -28,7 +28,7 @@ notes = [[""] + [rf"${fs.sci(e)}$" for e in d["errors"]],
          [""] + [rf"$\mathcal{{E}}={fs.sci(E)}$" for E in d["energies"]]]
 titles = [r"$t=0$"] + [rf"$t={T:g}$" for T in times]
 fig, axs = fs.wavefield_grid([top, bot], ["quantum\ncircuit", "classical\nPDE"], titles,
-                             vmax, (NPML - 0.5, N - 0.5 - NPML), notes=notes,
+                             vmax, (NPML - 0.5, N - 0.5 - NPML),
                              cbar_label=r"$v/v_{\mathrm{ref}}$")
 fs.panel_label(axs[0][0], "(a)", x=0.05, y=0.95)
 fs.panel_label(axs[1][0], "(b)", x=0.05, y=0.95)
