@@ -89,11 +89,11 @@ def wavefield_grid(rows, row_labels, col_titles, vmax, edges, notes=None,
     nr, nc = len(rows), len(rows[0])
     w = TEXTWIDTH
     pw = (w - 0.55) / nc                      # panel width (in), room for row labels + colour bar
-    h = height or nr * pw + 0.35 + ((0.22 if nc <= 5 else 0.34) * nr if notes else 0)
+    h = height or nr * pw + 0.35 + (0.22 * nr if notes else 0)
     fig = plt.figure(figsize=(w, h))
     gs = fig.add_gridspec(nr, nc + 1, width_ratios=[1] * nc + [0.05],
                           left=0.06, right=0.935, bottom=0.02, top=1 - 0.28 / h,
-                          wspace=0.06, hspace=(0.15 if nc <= 5 else 0.30) if notes else 0.06)
+                          wspace=0.06, hspace=(0.15 if nc <= 5 else 0.22) if notes else 0.06)
     if notes:
         gs.update(bottom=0.2 / h)
     im = None
