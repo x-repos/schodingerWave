@@ -89,11 +89,9 @@ def main():
     notes = [[r"$\epsilon=0$"] + [rf"$\epsilon={fs.sci(runs[(GRID, T)]['rel_error'])}$" for T in TS],
              [r"$\mathcal{E}=1$"] + [rf"$\mathcal{{E}}={runs[(GRID, T)]['energy_ratio_ref']:.2g}$" for T in TS]]
     titles = [r"$t=0$"] + [rf"$t={T:g}$" for T in TS]
-    fig, axs = fs.wavefield_grid([top, bot], ["quantum\ncircuit", "classical\nPDE"], titles,
+    fig, axs = fs.wavefield_grid([top, bot], ["(a) quantum\ncircuit", "(b) classical\nPDE"], titles,
                                  vmax, (NPML - 0.5, N - NPML - 0.5), notes=notes,
                                  cbar_label=r"$\tilde v_x/\tilde v_{\mathrm{ref}}$")
-    fs.panel_label(axs[0][0], "(a)", x=0.05, y=0.95)
-    fs.panel_label(axs[1][0], "(b)", x=0.05, y=0.95)
     fs.save(fig, 'elastic_fig_gatedemo_32' if '--32' in sys.argv else 'elastic_fig_gatedemo')
 
 if __name__ == '__main__':

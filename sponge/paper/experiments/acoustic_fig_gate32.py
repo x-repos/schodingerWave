@@ -27,9 +27,7 @@ bot = [v0] + [f for f in d["fields_ref"]]
 notes = [[r"$\epsilon=0$"] + [rf"$\epsilon={fs.sci(e)}$" for e in d["errors"]],
          [r"$\mathcal{E}=1$"] + [rf"$\mathcal{{E}}={E:.2g}$" for E in d["energies"]]]
 titles = [r"$t=0$"] + [rf"$t={T:g}$" for T in times]
-fig, axs = fs.wavefield_grid([top, bot], ["quantum\ncircuit", "classical\nPDE"], titles,
+fig, axs = fs.wavefield_grid([top, bot], ["(a) quantum\ncircuit", "(b) classical\nPDE"], titles,
                              vmax, (NPML - 0.5, N - 0.5 - NPML), notes=notes,
                              cbar_label=r"$v/v_{\mathrm{ref}}$")
-fs.panel_label(axs[0][0], "(a)", x=0.05, y=0.95)
-fs.panel_label(axs[1][0], "(b)", x=0.05, y=0.95)
 fs.save(fig, "fig6_2d_gate_level_32x32")
