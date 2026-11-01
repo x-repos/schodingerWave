@@ -1,0 +1,640 @@
+{
+  "meta": {
+    "script": "paper/experiments/elastic_gatecounts.py",
+    "qiskit": "1.4.5",
+    "dt": 0.05,
+    "basis_gates": [
+      "cx",
+      "u"
+    ],
+    "transpile_optimization_level": "default (plain transpile(circ, basis_gates=...) call)",
+    "wall_seconds": 1.71
+  },
+  "A_term_counts": {
+    "grid": [
+      {
+        "nx": 1,
+        "ny": 1,
+        "num_qubits": 5,
+        "terms": 24,
+        "max_weight": 4
+      },
+      {
+        "nx": 1,
+        "ny": 2,
+        "num_qubits": 6,
+        "terms": 30,
+        "max_weight": 5
+      },
+      {
+        "nx": 1,
+        "ny": 3,
+        "num_qubits": 7,
+        "terms": 36,
+        "max_weight": 6
+      },
+      {
+        "nx": 1,
+        "ny": 4,
+        "num_qubits": 8,
+        "terms": 42,
+        "max_weight": 7
+      },
+      {
+        "nx": 1,
+        "ny": 5,
+        "num_qubits": 9,
+        "terms": 48,
+        "max_weight": 8
+      },
+      {
+        "nx": 2,
+        "ny": 1,
+        "num_qubits": 6,
+        "terms": 30,
+        "max_weight": 5
+      },
+      {
+        "nx": 2,
+        "ny": 2,
+        "num_qubits": 7,
+        "terms": 36,
+        "max_weight": 5
+      },
+      {
+        "nx": 2,
+        "ny": 3,
+        "num_qubits": 8,
+        "terms": 42,
+        "max_weight": 6
+      },
+      {
+        "nx": 2,
+        "ny": 4,
+        "num_qubits": 9,
+        "terms": 48,
+        "max_weight": 7
+      },
+      {
+        "nx": 2,
+        "ny": 5,
+        "num_qubits": 10,
+        "terms": 54,
+        "max_weight": 8
+      },
+      {
+        "nx": 3,
+        "ny": 1,
+        "num_qubits": 7,
+        "terms": 36,
+        "max_weight": 6
+      },
+      {
+        "nx": 3,
+        "ny": 2,
+        "num_qubits": 8,
+        "terms": 42,
+        "max_weight": 6
+      },
+      {
+        "nx": 3,
+        "ny": 3,
+        "num_qubits": 9,
+        "terms": 48,
+        "max_weight": 6
+      },
+      {
+        "nx": 3,
+        "ny": 4,
+        "num_qubits": 10,
+        "terms": 54,
+        "max_weight": 7
+      },
+      {
+        "nx": 3,
+        "ny": 5,
+        "num_qubits": 11,
+        "terms": 60,
+        "max_weight": 8
+      },
+      {
+        "nx": 4,
+        "ny": 1,
+        "num_qubits": 8,
+        "terms": 42,
+        "max_weight": 7
+      },
+      {
+        "nx": 4,
+        "ny": 2,
+        "num_qubits": 9,
+        "terms": 48,
+        "max_weight": 7
+      },
+      {
+        "nx": 4,
+        "ny": 3,
+        "num_qubits": 10,
+        "terms": 54,
+        "max_weight": 7
+      },
+      {
+        "nx": 4,
+        "ny": 4,
+        "num_qubits": 11,
+        "terms": 60,
+        "max_weight": 7
+      },
+      {
+        "nx": 4,
+        "ny": 5,
+        "num_qubits": 12,
+        "terms": 66,
+        "max_weight": 8
+      },
+      {
+        "nx": 5,
+        "ny": 1,
+        "num_qubits": 9,
+        "terms": 48,
+        "max_weight": 8
+      },
+      {
+        "nx": 5,
+        "ny": 2,
+        "num_qubits": 10,
+        "terms": 54,
+        "max_weight": 8
+      },
+      {
+        "nx": 5,
+        "ny": 3,
+        "num_qubits": 11,
+        "terms": 60,
+        "max_weight": 8
+      },
+      {
+        "nx": 5,
+        "ny": 4,
+        "num_qubits": 12,
+        "terms": 66,
+        "max_weight": 8
+      },
+      {
+        "nx": 5,
+        "ny": 5,
+        "num_qubits": 13,
+        "terms": 72,
+        "max_weight": 8
+      }
+    ],
+    "law": {
+      "alpha_nx": 6.0,
+      "beta_ny": 6.0,
+      "gamma": 12.0,
+      "formula": "6*nx + 6*ny + 12",
+      "exactly_linear": true,
+      "max_abs_residual": 0.0,
+      "note": "exact on the whole grid; with n_sys = nx + ny + 3 this is 6*n_sys - 6"
+    }
+  },
+  "B_ops_per_strang_step": {
+    "data": [
+      {
+        "a": 1,
+        "n_sys": 5,
+        "terms": 24,
+        "raw_ops": {
+          "cx": 120,
+          "unitary": 96,
+          "x": 88,
+          "p": 48,
+          "h": 48,
+          "ccx": 24
+        },
+        "transpiled_ops": {
+          "u": 276,
+          "cx": 245
+        },
+        "total": 521,
+        "cx": 245,
+        "depth": 379,
+        "transpile_seconds": 0.017
+      },
+      {
+        "a": 2,
+        "n_sys": 7,
+        "terms": 36,
+        "raw_ops": {
+          "cx": 180,
+          "x": 148,
+          "unitary": 144,
+          "p": 72,
+          "h": 72,
+          "ccx": 72
+        },
+        "transpiled_ops": {
+          "u": 624,
+          "cx": 554
+        },
+        "total": 1178,
+        "cx": 554,
+        "depth": 798,
+        "transpile_seconds": 0.028
+      },
+      {
+        "a": 3,
+        "n_sys": 9,
+        "terms": 48,
+        "raw_ops": {
+          "cx": 264,
+          "x": 216,
+          "unitary": 192,
+          "p": 96,
+          "h": 96,
+          "ccx": 96,
+          "mcx_vchain": 24
+        },
+        "transpiled_ops": {
+          "u": 1146,
+          "cx": 1054
+        },
+        "total": 2200,
+        "cx": 1054,
+        "depth": 1520,
+        "transpile_seconds": 0.036
+      },
+      {
+        "a": 4,
+        "n_sys": 11,
+        "terms": 60,
+        "raw_ops": {
+          "cx": 372,
+          "x": 292,
+          "unitary": 240,
+          "p": 120,
+          "h": 120,
+          "ccx": 96,
+          "mcx_vchain": 72
+        },
+        "transpiled_ops": {
+          "u": 1845,
+          "cx": 1750
+        },
+        "total": 3595,
+        "cx": 1750,
+        "depth": 2385,
+        "transpile_seconds": 0.061
+      },
+      {
+        "a": 5,
+        "n_sys": 13,
+        "terms": 72,
+        "raw_ops": {
+          "cx": 504,
+          "x": 376,
+          "unitary": 288,
+          "p": 144,
+          "h": 144,
+          "mcx_vchain": 120,
+          "ccx": 96
+        },
+        "transpiled_ops": {
+          "u": 2913,
+          "cx": 2732
+        },
+        "total": 5645,
+        "cx": 2732,
+        "depth": 4190,
+        "transpile_seconds": 0.092
+      }
+    ],
+    "fits": {
+      "total": {
+        "powerlaw": {
+          "exponent": 2.483858892828757,
+          "prefactor": 9.45700052523121,
+          "r2_loglog": 0.9997321761638627,
+          "r2_linear": 0.9989792684282123,
+          "fitted_values": [
+            515.1056034200951,
+            1188.1128558875275,
+            2217.977601907181,
+            3651.1182188436887,
+            5528.808083008204
+          ]
+        },
+        "quadratic": {
+          "c2": 56.41071428571442,
+          "c1": -382.1428571428597,
+          "c0": 1046.5321428571542,
+          "r2": 0.9994343022713689,
+          "max_abs_residual": 73.65714285714148,
+          "max_rel_residual": 0.04814916369619236,
+          "fitted_values": [
+            546.0857142857162,
+            1135.6571428571424,
+            2176.514285714285,
+            3668.6571428571415,
+            5612.085714285715
+          ]
+        }
+      },
+      "cx": {
+        "powerlaw": {
+          "exponent": 2.5223678339303204,
+          "prefactor": 4.162606387188791,
+          "r2_loglog": 0.9997405703202675,
+          "r2_linear": 0.9993883005542895,
+          "fitted_values": [
+            241.22638140039513,
+            563.6551234151495,
+            1062.4682428375004,
+            1762.5472074630438,
+            2686.2116417742473
+          ]
+        },
+        "quadratic": {
+          "c2": 27.535714285714352,
+          "c1": -187.14285714285842,
+          "c0": 500.60714285714835,
+          "r2": 0.9997471641441981,
+          "max_abs_residual": 23.85714285714198,
+          "max_rel_residual": 0.033819241982510385,
+          "fitted_values": [
+            253.28571428571504,
+            539.8571428571427,
+            1046.7142857142853,
+            1773.857142857142,
+            2721.2857142857147
+          ]
+        }
+      }
+    }
+  },
+  "C_mcrz_cost": {
+    "data": [
+      {
+        "k": 4,
+        "transpiled_ops": {
+          "u": 29,
+          "cx": 24
+        },
+        "total": 53,
+        "cx": 24,
+        "law_32k_minus_31": 97,
+        "matches_law": false
+      },
+      {
+        "k": 5,
+        "transpiled_ops": {
+          "u": 44,
+          "cx": 40
+        },
+        "total": 84,
+        "cx": 40,
+        "law_32k_minus_31": 129,
+        "matches_law": false
+      },
+      {
+        "k": 6,
+        "transpiled_ops": {
+          "u": 59,
+          "cx": 56
+        },
+        "total": 115,
+        "cx": 56,
+        "law_32k_minus_31": 161,
+        "matches_law": false
+      },
+      {
+        "k": 7,
+        "transpiled_ops": {
+          "u": 89,
+          "cx": 80
+        },
+        "total": 169,
+        "cx": 80,
+        "law_32k_minus_31": 193,
+        "matches_law": false
+      },
+      {
+        "k": 8,
+        "transpiled_ops": {
+          "u": 121,
+          "cx": 104
+        },
+        "total": 225,
+        "cx": 104,
+        "law_32k_minus_31": 225,
+        "matches_law": true
+      },
+      {
+        "k": 9,
+        "transpiled_ops": {
+          "u": 137,
+          "cx": 120
+        },
+        "total": 257,
+        "cx": 120,
+        "law_32k_minus_31": 257,
+        "matches_law": true
+      },
+      {
+        "k": 10,
+        "transpiled_ops": {
+          "u": 153,
+          "cx": 136
+        },
+        "total": 289,
+        "cx": 136,
+        "law_32k_minus_31": 289,
+        "matches_law": true
+      },
+      {
+        "k": 11,
+        "transpiled_ops": {
+          "u": 169,
+          "cx": 152
+        },
+        "total": 321,
+        "cx": 152,
+        "law_32k_minus_31": 321,
+        "matches_law": true
+      },
+      {
+        "k": 12,
+        "transpiled_ops": {
+          "u": 185,
+          "cx": 168
+        },
+        "total": 353,
+        "cx": 168,
+        "law_32k_minus_31": 353,
+        "matches_law": true
+      }
+    ],
+    "fit_k_ge_8": {
+      "k_range": [
+        8,
+        12
+      ],
+      "total_fit": {
+        "slope": 31.999999999999996,
+        "intercept": -31.00000000000006,
+        "r2": 1.0
+      },
+      "cx_fit": {
+        "slope": 15.999999999999998,
+        "intercept": -24.00000000000005,
+        "r2": 1.0
+      },
+      "law_total_32k_minus_31_exact": true
+    }
+  },
+  "D_trotter_order_slopes": {
+    "meta": {
+      "script": "paper/experiments/elastic_trotter_orders.py",
+      "system": {
+        "num_qubits_x": 2,
+        "num_qubits_y": 2,
+        "n_sys": 7,
+        "npml": 1,
+        "cp": 1.0,
+        "cs": 0.5,
+        "sigma_max": 1.0,
+        "T": 4.0,
+        "n_p": 5,
+        "p_max": 8.0
+      },
+      "reference": "exact Schrodingerised evolution expm(-i T (eta_k H1 - H2)) per Fourier mode (= expm(-i T H_tot)) applied to the same warped initial state; full-statevector Frobenius error, p-discretisation floor cancels",
+      "order1": "trotter_order=1 + get_bell_evolution_circ",
+      "order2": "trotter_order=2 (Strang damping halves) + get_bell_evolution_circ_strang (both levels symmetrised)",
+      "wall_seconds": 3.14
+    },
+    "data": [
+      {
+        "trotter_order": 1,
+        "num_steps": 25,
+        "splitting_error_raw": 0.16829064350804793,
+        "splitting_error_phase_aligned": 0.16829064350804776,
+        "recovered_z_error_vs_physical": 0.04340004894893091,
+        "p_star": 1.5,
+        "sim_seconds": 0.27
+      },
+      {
+        "trotter_order": 1,
+        "num_steps": 50,
+        "splitting_error_raw": 0.08387499441117777,
+        "splitting_error_phase_aligned": 0.08387499441117774,
+        "recovered_z_error_vs_physical": 0.022929815739591103,
+        "p_star": 1.5,
+        "sim_seconds": 0.45
+      },
+      {
+        "trotter_order": 1,
+        "num_steps": 100,
+        "splitting_error_raw": 0.04185901195384008,
+        "splitting_error_phase_aligned": 0.04185901195384007,
+        "recovered_z_error_vs_physical": 0.013737302228445674,
+        "p_star": 1.5,
+        "sim_seconds": 0.91
+      },
+      {
+        "trotter_order": 1,
+        "num_steps": 200,
+        "splitting_error_raw": 0.020908679539649148,
+        "splitting_error_phase_aligned": 0.020908679539649148,
+        "recovered_z_error_vs_physical": 0.010165395798253186,
+        "p_star": 1.5,
+        "sim_seconds": 1.48
+      },
+      {
+        "trotter_order": 2,
+        "num_steps": 25,
+        "splitting_error_raw": 0.009896572078582685,
+        "splitting_error_phase_aligned": 0.00989657207858184,
+        "recovered_z_error_vs_physical": 0.00826029771728221,
+        "p_star": 1.5,
+        "sim_seconds": 0.41
+      },
+      {
+        "trotter_order": 2,
+        "num_steps": 50,
+        "splitting_error_raw": 0.0024710728538276557,
+        "splitting_error_phase_aligned": 0.002471072853827447,
+        "recovered_z_error_vs_physical": 0.00833778205543866,
+        "p_star": 1.5,
+        "sim_seconds": 0.77
+      },
+      {
+        "trotter_order": 2,
+        "num_steps": 100,
+        "splitting_error_raw": 0.0006175760654725163,
+        "splitting_error_phase_aligned": 0.0006175760654724651,
+        "recovered_z_error_vs_physical": 0.008472529741832784,
+        "p_star": 1.5,
+        "sim_seconds": 1.31
+      },
+      {
+        "trotter_order": 2,
+        "num_steps": 200,
+        "splitting_error_raw": 0.00015438200296684002,
+        "splitting_error_phase_aligned": 0.00015438200296682644,
+        "recovered_z_error_vs_physical": 0.008513030175410979,
+        "p_star": 1.5,
+        "sim_seconds": 2.41
+      }
+    ],
+    "fits": {
+      "order1": {
+        "num_steps": [
+          25,
+          50,
+          100,
+          200
+        ],
+        "errors_raw": [
+          0.16829064350804793,
+          0.08387499441117777,
+          0.04185901195384008,
+          0.020908679539649148
+        ],
+        "fit_raw": {
+          "slope": -1.0029045838772388,
+          "intercept": 1.4455836450060096,
+          "r2_loglog": 0.9999994845419976
+        },
+        "fit_phase_aligned": {
+          "slope": -1.0029045838772381,
+          "intercept": 1.4455836450060053,
+          "r2_loglog": 0.9999994845419976
+        }
+      },
+      "order2": {
+        "num_steps": [
+          25,
+          50,
+          100,
+          200
+        ],
+        "errors_raw": [
+          0.009896572078582685,
+          0.0024710728538276557,
+          0.0006175760654725163,
+          0.00015438200296684002
+        ],
+        "fit_raw": {
+          "slope": -2.0007506038388696,
+          "intercept": 1.8242750834390637,
+          "r2_loglog": 0.9999999622562804
+        },
+        "fit_phase_aligned": {
+          "slope": -2.000750603838872,
+          "intercept": 1.8242750834389878,
+          "r2_loglog": 0.9999999622562804
+        }
+      }
+    }
+  }
+}

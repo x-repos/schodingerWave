@@ -1,0 +1,33 @@
+  step 40/1280 (312s/block)
+  step 80/1280 (313s/block)
+  step 120/1280 (314s/block)
+[32] T=8 steps=160 err=1.030e-03 win=1.028e-03 E=9.97e-01 leak=0.0e+00 wall=1272.4s
+  step 200/1280 (316s/block)
+  step 240/1280 (312s/block)
+  step 280/1280 (312s/block)
+[32] T=16 steps=320 err=2.041e-03 win=2.040e-03 E=5.43e-01 leak=0.0e+00 wall=2527.8s
+  step 360/1280 (313s/block)
+  step 400/1280 (312s/block)
+  step 440/1280 (311s/block)
+[32] T=24 steps=480 err=2.432e-03 win=2.431e-03 E=2.10e-01 leak=0.0e+00 wall=3778.8s
+  step 520/1280 (312s/block)
+  step 560/1280 (312s/block)
+  step 600/1280 (311s/block)
+[32] T=32 steps=640 err=3.233e-03 win=3.228e-03 E=4.19e-02 leak=0.0e+00 wall=5028.3s
+  step 680/1280 (311s/block)
+  step 720/1280 (312s/block)
+  step 760/1280 (312s/block)
+[32] T=40 steps=800 err=3.665e-03 win=3.664e-03 E=5.69e-03 leak=0.0e+00 wall=6278.9s
+  step 840/1280 (312s/block)
+  step 880/1280 (311s/block)
+  step 920/1280 (312s/block)
+[32] T=48 steps=960 err=3.869e-03 win=3.871e-03 E=2.69e-03 leak=0.0e+00 wall=7528.7s
+  step 1000/1280 (311s/block)
+  step 1040/1280 (312s/block)
+  step 1080/1280 (312s/block)
+[32] T=56 steps=1120 err=3.741e-03 win=3.740e-03 E=1.31e-03 leak=0.0e+00 wall=8778.5s
+  step 1160/1280 (312s/block)
+  step 1200/1280 (311s/block)
+  step 1240/1280 (312s/block)
+[32] T=64 steps=1280 err=3.556e-03 win=3.540e-03 E=7.24e-04 leak=0.0e+00 wall=10028.4s
+total wall: 10028.5s

@@ -1,0 +1,885 @@
+{
+ "dt": 0.1,
+ "num_qubits_p": 9,
+ "qiskit_note": "transpile(circ, StatevectorSimulator(), optimization_level=1); elementary counts in basis ['cx','u']",
+ "wave_step_2d_strang": [
+  {
+   "nx": 2,
+   "n_sys": 6,
+   "n_terms": 12,
+   "raw_ops": {
+    "cx": 48,
+    "x": 40,
+    "unitary": 32,
+    "p": 24,
+    "h": 24,
+    "ccx": 8,
+    "crz": 4
+   },
+   "aer": {
+    "ops": {
+     "cx": 44,
+     "u1": 25,
+     "u2": 22,
+     "x": 18,
+     "ccx": 8,
+     "rzz": 4
+    },
+    "total": 121,
+    "depth": 103,
+    "cx": 52
+   },
+   "cxu": {
+    "ops": {
+     "u": 117,
+     "cx": 100
+    },
+    "total": 217,
+    "depth": 159,
+    "cx": 100
+   }
+  },
+  {
+   "nx": 3,
+   "n_sys": 8,
+   "n_terms": 16,
+   "raw_ops": {
+    "cx": 72,
+    "x": 56,
+    "unitary": 48,
+    "p": 32,
+    "h": 32,
+    "ccx": 24,
+    "crz": 4
+   },
+   "aer": {
+    "ops": {
+     "cx": 66,
+     "u1": 37,
+     "u2": 30,
+     "x": 26,
+     "ccx": 24,
+     "rzz": 4
+    },
+    "total": 187,
+    "depth": 161,
+    "cx": 90
+   },
+   "cxu": {
+    "ops": {
+     "u": 241,
+     "cx": 218
+    },
+    "total": 459,
+    "depth": 319,
+    "cx": 218
+   }
+  },
+  {
+   "nx": 4,
+   "n_sys": 10,
+   "n_terms": 20,
+   "raw_ops": {
+    "cx": 104,
+    "x": 72,
+    "unitary": 64,
+    "p": 40,
+    "h": 40,
+    "ccx": 32,
+    "mcx_vchain": 8,
+    "crz": 4
+   },
+   "aer": {
+    "ops": {
+     "cx": 208,
+     "p": 109,
+     "u2": 48,
+     "u1": 39,
+     "ccx": 32,
+     "x": 31,
+     "rzz": 4,
+     "u3": 3
+    },
+    "total": 474,
+    "depth": 403,
+    "cx": 240
+   },
+   "cxu": {
+    "ops": {
+     "u": 426,
+     "cx": 408
+    },
+    "total": 834,
+    "depth": 587,
+    "cx": 408
+   }
+  },
+  {
+   "nx": 5,
+   "n_sys": 12,
+   "n_terms": 24,
+   "raw_ops": {
+    "cx": 144,
+    "x": 88,
+    "unitary": 80,
+    "p": 48,
+    "h": 48,
+    "ccx": 32,
+    "mcx_vchain": 24,
+    "crz": 4
+   },
+   "aer": {
+    "ops": {
+     "cx": 470,
+     "p": 328,
+     "u2": 48,
+     "u1": 43,
+     "x": 35,
+     "ccx": 32,
+     "u3": 23,
+     "rzz": 4
+    },
+    "total": 983,
+    "depth": 722,
+    "cx": 502
+   },
+   "cxu": {
+    "ops": {
+     "u": 673,
+     "cx": 670
+    },
+    "total": 1343,
+    "depth": 914,
+    "cx": 670
+   }
+  }
+ ],
+ "damping_diagonal_full_register": [
+  {
+   "nx": 2,
+   "n_full": 15,
+   "aer": {
+    "ops": {
+     "diagonal": 1
+    },
+    "total": 1,
+    "depth": 1,
+    "cx": 0
+   },
+   "cxu": {
+    "ops": {
+     "cx": 32766,
+     "u": 23659
+    },
+    "total": 56425,
+    "depth": 56400,
+    "cx": 32766
+   },
+   "cxu_formula_2^(n+1)-3": 65533,
+   "transpile_seconds": 0.7
+  },
+  {
+   "nx": 3,
+   "n_full": 17,
+   "aer": {
+    "ops": {
+     "diagonal": 1
+    },
+    "total": 1,
+    "depth": 1,
+    "cx": 0
+   },
+   "cxu": {
+    "ops": {
+     "cx": 131070,
+     "u": 91797
+    },
+    "total": 222867,
+    "depth": 222838,
+    "cx": 131070
+   },
+   "cxu_formula_2^(n+1)-3": 262141,
+   "transpile_seconds": 2.7
+  },
+  {
+   "nx": 4,
+   "n_full": 19,
+   "aer": {
+    "ops": {
+     "diagonal": 1
+    },
+    "total": 1,
+    "depth": 1,
+    "cx": 0
+   },
+   "cxu": {
+    "ops": {
+     "cx": 524286,
+     "u": 370989
+    },
+    "total": 895275,
+    "depth": 895242,
+    "cx": 524286
+   },
+   "cxu_formula_2^(n+1)-3": 1048573,
+   "transpile_seconds": 11.3
+  },
+  {
+   "nx": 5,
+   "n_full": 21,
+   "aer": {
+    "ops": {
+     "diagonal": 1
+    },
+    "total": 1,
+    "depth": 1,
+    "cx": 0
+   },
+   "cxu": {
+    "ops": {
+     "cx": 2097150,
+     "u": 1502401
+    },
+    "total": 3599551,
+    "depth": 3599514,
+    "cx": 2097150
+   },
+   "cxu_formula_2^(n+1)-3": 4194301,
+   "transpile_seconds": 43.7
+  }
+ ],
+ "qft_p_register": {
+  "n_p": 9,
+  "aer": {
+   "ops": {
+    "cp": 36,
+    "h": 9,
+    "swap": 4
+   },
+   "total": 49,
+   "depth": 18,
+   "cx": 0
+  },
+  "cxu": {
+   "ops": {
+    "u": 101,
+    "cx": 84
+   },
+   "total": 185,
+   "depth": 64,
+   "cx": 84
+  }
+ },
+ "wave_step_1d_first_order": [
+  {
+   "nx": 3,
+   "n_sys": 4,
+   "n_terms": 8,
+   "raw_ops": {
+    "cx": 18,
+    "p": 8,
+    "h": 8,
+    "unitary": 8,
+    "x": 6,
+    "ccx": 2,
+    "rz": 1,
+    "crz": 1
+   },
+   "aer": {
+    "ops": {
+     "cx": 18,
+     "x": 6,
+     "u2": 6,
+     "u1": 6,
+     "ccx": 2,
+     "u3": 1,
+     "rzz": 1
+    },
+    "total": 40,
+    "depth": 34,
+    "cx": 20
+   },
+   "cxu": {
+    "ops": {
+     "u": 32,
+     "cx": 32
+    },
+    "total": 64,
+    "depth": 48,
+    "cx": 32
+   }
+  },
+  {
+   "nx": 4,
+   "n_sys": 5,
+   "n_terms": 10,
+   "raw_ops": {
+    "cx": 26,
+    "unitary": 12,
+    "p": 10,
+    "h": 10,
+    "x": 8,
+    "ccx": 6,
+    "rz": 1,
+    "crz": 1
+   },
+   "aer": {
+    "ops": {
+     "cx": 26,
+     "u1": 9,
+     "x": 8,
+     "u2": 8,
+     "ccx": 6,
+     "u3": 1,
+     "rzz": 1
+    },
+    "total": 59,
+    "depth": 51,
+    "cx": 32
+   },
+   "cxu": {
+    "ops": {
+     "cx": 64,
+     "u": 63
+    },
+    "total": 127,
+    "depth": 91,
+    "cx": 64
+   }
+  },
+  {
+   "nx": 5,
+   "n_sys": 6,
+   "n_terms": 12,
+   "raw_ops": {
+    "cx": 36,
+    "unitary": 16,
+    "p": 12,
+    "h": 12,
+    "x": 10,
+    "ccx": 8,
+    "mcx_vchain": 2,
+    "rz": 1,
+    "crz": 1
+   },
+   "aer": {
+    "ops": {
+     "cx": 64,
+     "p": 27,
+     "u2": 12,
+     "u1": 10,
+     "x": 9,
+     "ccx": 8,
+     "u3": 2,
+     "rzz": 1
+    },
+    "total": 133,
+    "depth": 113,
+    "cx": 72
+   },
+   "cxu": {
+    "ops": {
+     "cx": 114,
+     "u": 109
+    },
+    "total": 223,
+    "depth": 161,
+    "cx": 114
+   }
+  },
+  {
+   "nx": 6,
+   "n_sys": 7,
+   "n_terms": 14,
+   "raw_ops": {
+    "cx": 48,
+    "unitary": 20,
+    "p": 14,
+    "h": 14,
+    "x": 12,
+    "ccx": 8,
+    "mcx_vchain": 6,
+    "rz": 1,
+    "crz": 1
+   },
+   "aer": {
+    "ops": {
+     "cx": 132,
+     "p": 82,
+     "u2": 12,
+     "u1": 11,
+     "x": 10,
+     "ccx": 8,
+     "u3": 7,
+     "rzz": 1
+    },
+    "total": 263,
+    "depth": 196,
+    "cx": 140
+   },
+   "cxu": {
+    "ops": {
+     "cx": 182,
+     "u": 171
+    },
+    "total": 353,
+    "depth": 244,
+    "cx": 182
+   }
+  },
+  {
+   "nx": 7,
+   "n_sys": 8,
+   "n_terms": 16,
+   "raw_ops": {
+    "cx": 62,
+    "unitary": 24,
+    "p": 16,
+    "h": 16,
+    "x": 14,
+    "mcx_vchain": 10,
+    "ccx": 8,
+    "rz": 1,
+    "crz": 1
+   },
+   "aer": {
+    "ops": {
+     "cx": 202,
+     "p": 108,
+     "u2": 32,
+     "x": 12,
+     "ccx": 12,
+     "u1": 11,
+     "u3": 8,
+     "tdg": 8,
+     "t": 8,
+     "rzz": 1
+    },
+    "total": 402,
+    "depth": 327,
+    "cx": 214
+   },
+   "cxu": {
+    "ops": {
+     "cx": 276,
+     "u": 262
+    },
+    "total": 538,
+    "depth": 411,
+    "cx": 276
+   }
+  }
+ ],
+ "mcrz_vs_controls": [
+  {
+   "k_controls": 1,
+   "raw_ops": {
+    "crz": 1
+   },
+   "aer_total": 2,
+   "cxu_total": 4,
+   "cxu_cx": 2
+  },
+  {
+   "k_controls": 2,
+   "raw_ops": {
+    "cx": 4,
+    "unitary": 4
+   },
+   "aer_total": 8,
+   "cxu_total": 8,
+   "cxu_cx": 4
+  },
+  {
+   "k_controls": 3,
+   "raw_ops": {
+    "unitary": 4,
+    "ccx": 2,
+    "cx": 2
+   },
+   "aer_total": 8,
+   "cxu_total": 31,
+   "cxu_cx": 14
+  },
+  {
+   "k_controls": 4,
+   "raw_ops": {
+    "ccx": 4,
+    "unitary": 4
+   },
+   "aer_total": 8,
+   "cxu_total": 53,
+   "cxu_cx": 24
+  },
+  {
+   "k_controls": 5,
+   "raw_ops": {
+    "unitary": 4,
+    "mcx_vchain": 2,
+    "ccx": 2
+   },
+   "aer_total": 63,
+   "cxu_total": 85,
+   "cxu_cx": 40
+  },
+  {
+   "k_controls": 6,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 117,
+   "cxu_total": 117,
+   "cxu_cx": 56
+  },
+  {
+   "k_controls": 7,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 122,
+   "cxu_total": 169,
+   "cxu_cx": 80
+  },
+  {
+   "k_controls": 8,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 132,
+   "cxu_total": 225,
+   "cxu_cx": 104
+  },
+  {
+   "k_controls": 9,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 164,
+   "cxu_total": 257,
+   "cxu_cx": 120
+  },
+  {
+   "k_controls": 10,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 196,
+   "cxu_total": 289,
+   "cxu_cx": 136
+  },
+  {
+   "k_controls": 11,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 228,
+   "cxu_total": 321,
+   "cxu_cx": 152
+  },
+  {
+   "k_controls": 12,
+   "raw_ops": {
+    "mcx_vchain": 4,
+    "unitary": 4
+   },
+   "aer_total": 260,
+   "cxu_total": 353,
+   "cxu_cx": 168
+  }
+ ],
+ "fits": {
+  "terms_2d_vs_nx": {
+   "x": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "y": [
+    12,
+    16,
+    20,
+    24
+   ],
+   "linear_slope": 3.999999999999997,
+   "linear_intercept": 4.0000000000000036
+  },
+  "terms_1d_vs_nx": {
+   "x": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "y": [
+    8,
+    10,
+    12,
+    14,
+    16
+   ],
+   "linear_slope": 2.0000000000000004,
+   "linear_intercept": 2.000000000000001
+  },
+  "ops2d_aer": {
+   "n_sys": [
+    6,
+    8,
+    10,
+    12
+   ],
+   "total": [
+    121,
+    187,
+    474,
+    983
+   ],
+   "power_law": {
+    "exponent": 3.0684612145605312,
+    "prefactor": 0.4178900915948763,
+    "r2": 0.952455481617715
+   },
+   "exponential": {
+    "rate": 0.3607277214245883,
+    "prefactor": 12.467551737912864,
+    "r2": 0.9827036826571517
+   }
+  },
+  "ops2d_cxu": {
+   "n_sys": [
+    6,
+    8,
+    10,
+    12
+   ],
+   "total": [
+    217,
+    459,
+    834,
+    1343
+   ],
+   "power_law": {
+    "exponent": 2.6335903326232684,
+    "prefactor": 1.932081962032039,
+    "r2": 0.9999706391076313
+   },
+   "exponential": {
+    "rate": 0.30327373606232694,
+    "prefactor": 37.71270031328999,
+    "r2": 0.9899666171654186
+   }
+  },
+  "ops1d_aer": {
+   "n_sys": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "total": [
+    40,
+    59,
+    133,
+    263,
+    402
+   ],
+   "power_law": {
+    "exponent": 3.507918408291093,
+    "prefactor": 0.26240328247538636,
+    "r2": 0.9757356681662058
+   },
+   "exponential": {
+    "rate": 0.6109761857282214,
+    "prefactor": 3.2518280496892515,
+    "r2": 0.9869533435100613
+   }
+  },
+  "ops1d_cxu": {
+   "n_sys": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "total": [
+    64,
+    127,
+    223,
+    353,
+    538
+   ],
+   "power_law": {
+    "exponent": 3.064903832243688,
+    "prefactor": 0.9146719424875125,
+    "r2": 0.9999616208949402
+   },
+   "exponential": {
+    "rate": 0.5280231924078932,
+    "prefactor": 8.540115712889262,
+    "r2": 0.9896245654376977
+   }
+  },
+  "ops2d_cxu_quadratic": {
+   "n_sys": [
+    6.0,
+    8.0,
+    10.0,
+    12.0
+   ],
+   "total": [
+    217.0,
+    459.0,
+    834.0,
+    1343.0
+   ],
+   "coeffs_c2_c1_c0": [
+    16.687499999999996,
+    -112.72500000000043,
+    292.65000000000504
+   ],
+   "r2": 0.9999999307548997,
+   "max_rel_residual": 0.00032679738561801715
+  },
+  "ops1d_cxu_quadratic": {
+   "n_sys": [
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0
+   ],
+   "total": [
+    64.0,
+    127.0,
+    223.0,
+    353.0,
+    538.0
+   ],
+   "coeffs_c2_c1_c0": [
+    19.85714285714286,
+    -120.88571428571464,
+    231.74285714285924
+   ],
+   "r2": 0.9996226392538857,
+   "max_rel_residual": 0.02991071428572578
+  },
+  "ops_combined_cxu": {
+   "n_sys": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    6,
+    8,
+    10,
+    12
+   ],
+   "total": [
+    64,
+    127,
+    223,
+    353,
+    538,
+    217,
+    459,
+    834,
+    1343
+   ],
+   "power_law": {
+    "exponent": 2.7611316647562303,
+    "prefactor": 1.5187854833865508,
+    "r2": 0.9942024520849878
+   }
+  },
+  "depth2d_aer": {
+   "n_sys": [
+    6,
+    8,
+    10,
+    12
+   ],
+   "depth": [
+    103,
+    161,
+    403,
+    722
+   ],
+   "power_law": {
+    "exponent": 2.88788376132333,
+    "prefactor": 0.5081133197511434,
+    "r2": 0.9623836792885127
+   }
+  },
+  "depth1d_aer": {
+   "n_sys": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "depth": [
+    34,
+    51,
+    113,
+    196,
+    327
+   ],
+   "power_law": {
+    "exponent": 3.3724306322950097,
+    "prefactor": 0.27433346985442764,
+    "r2": 0.9806098252079043
+   }
+  },
+  "mcrz_cxu_k_ge_5": {
+   "k": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "cxu_total": [
+    85,
+    117,
+    169,
+    225,
+    257,
+    289,
+    321,
+    353
+   ],
+   "linear": {
+    "slope": 39.142857142857146,
+    "intercept": -105.71428571428578
+   },
+   "power_law": {
+    "exponent": 1.648434855470483,
+    "r2": 0.9765274233784697
+   },
+   "exponential": {
+    "rate": 0.19947158508358367,
+    "r2": 0.9279163635049799
+   }
+  }
+ },
+ "conclusion": {
+  "per_step_aer": "ops/step(2D, Aer-native) = 0.418 * n^3.07",
+  "per_step_cxu": "ops/step(2D, cx+u) = 1.93 * n^2.63",
+  "steps": "Strang/2nd-order Trotter: per-step error O(dt^3), accumulated O(T dt^2) -> dt = sqrt(eps_trotter/(C T)), steps = T/dt = sqrt(C) T^{3/2} eps_trotter^{-1/2}",
+  "total": "G_total ~ steps * [ops/step(n) + diagonal-damping] + 2*QFT(n_p): polynomial in n per step; the damping DiagonalGate is native on Aer (1 op) but 2^(n+n_p+1)-3 elementary gates if synthesised generically"
+ }
+}

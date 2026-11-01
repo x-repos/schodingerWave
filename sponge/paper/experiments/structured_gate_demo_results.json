@@ -1,0 +1,152 @@
+{
+ "meta": {
+  "script": "paper/experiments/structured_gate_demo.py",
+  "cases": {
+   "acoustic_8x8": {
+    "kind": "acoustic",
+    "nq": 3,
+    "npml": 2,
+    "sigma_max": 1.0,
+    "n_p": 9,
+    "p_max": 16.0,
+    "times": [
+     2.5,
+     5.0,
+     7.5,
+     10.0
+    ],
+    "steps_per_unit": 20
+   },
+   "elastic_8x8": {
+    "kind": "elastic",
+    "nq": 3,
+    "npml": 2,
+    "sigma_max": 1.0,
+    "n_p": 9,
+    "p_max": 10.0,
+    "times": [
+     2.0,
+     4.0,
+     6.0,
+     8.0
+    ],
+    "steps_per_unit": 20
+   }
+  },
+  "wall_s": 160.7
+ },
+ "runs": [
+  {
+   "case": "acoustic_8x8",
+   "T": 2.5,
+   "steps": 50,
+   "num_qubits": 18,
+   "rel_err_slice": 0.0008387982819339358,
+   "rel_err_window": 0.0008322676292919007,
+   "prob_window": 0.2847759532563681,
+   "flag_leak": 0.0,
+   "energy_ref": 0.676877244408336,
+   "cx_wave_step": 218,
+   "cx_damping_step": 3646,
+   "seconds": 14.2
+  },
+  {
+   "case": "acoustic_8x8",
+   "T": 5.0,
+   "steps": 100,
+   "num_qubits": 18,
+   "rel_err_slice": 0.001690118946202099,
+   "rel_err_window": 0.001785024320427871,
+   "prob_window": 0.06425248131814017,
+   "flag_leak": 0.0,
+   "energy_ref": 0.15269427861636775,
+   "cx_wave_step": 218,
+   "cx_damping_step": 3646,
+   "seconds": 27.0
+  },
+  {
+   "case": "acoustic_8x8",
+   "T": 7.5,
+   "steps": 150,
+   "num_qubits": 18,
+   "rel_err_slice": 0.002962189000943372,
+   "rel_err_window": 0.002878062162008294,
+   "prob_window": 0.007362340882506903,
+   "flag_leak": 0.0,
+   "energy_ref": 0.01750186159999985,
+   "cx_wave_step": 218,
+   "cx_damping_step": 3646,
+   "seconds": 39.0
+  },
+  {
+   "case": "acoustic_8x8",
+   "T": 10.0,
+   "steps": 200,
+   "num_qubits": 18,
+   "rel_err_slice": 0.0026527878524759373,
+   "rel_err_window": 0.002542749453215232,
+   "prob_window": 0.0015280229902115278,
+   "flag_leak": 0.0,
+   "energy_ref": 0.003626626973505474,
+   "cx_wave_step": 218,
+   "cx_damping_step": 3646,
+   "seconds": 49.8
+  },
+  {
+   "case": "elastic_8x8",
+   "T": 2.0,
+   "steps": 40,
+   "num_qubits": 19,
+   "rel_err_slice": 0.00048492907297141205,
+   "rel_err_window": 0.00048489881649995043,
+   "prob_window": 0.3422696801465243,
+   "flag_leak": 0.0,
+   "energy_ref": 0.8326726851152236,
+   "cx_wave_step": 1150,
+   "cx_damping_step": 3148,
+   "seconds": 50.5
+  },
+  {
+   "case": "elastic_8x8",
+   "T": 4.0,
+   "steps": 80,
+   "num_qubits": 19,
+   "rel_err_slice": 0.0008520960638599878,
+   "rel_err_window": 0.0008531772899814488,
+   "prob_window": 0.15302939369116395,
+   "flag_leak": 0.0,
+   "energy_ref": 0.37222888564280954,
+   "cx_wave_step": 1150,
+   "cx_damping_step": 3148,
+   "seconds": 87.9
+  },
+  {
+   "case": "elastic_8x8",
+   "T": 6.0,
+   "steps": 120,
+   "num_qubits": 19,
+   "rel_err_slice": 0.0011625551902547326,
+   "rel_err_window": 0.001164091731460358,
+   "prob_window": 0.05070689729714797,
+   "flag_leak": 0.0,
+   "energy_ref": 0.12334683486623309,
+   "cx_wave_step": 1150,
+   "cx_damping_step": 3148,
+   "seconds": 124.8
+  },
+  {
+   "case": "elastic_8x8",
+   "T": 8.0,
+   "steps": 160,
+   "num_qubits": 19,
+   "rel_err_slice": 0.00131427014537899,
+   "rel_err_window": 0.001681241286977238,
+   "prob_window": 0.018490080001938684,
+   "flag_leak": 0.0,
+   "energy_ref": 0.04496920076825218,
+   "cx_wave_step": 1150,
+   "cx_damping_step": 3148,
+   "seconds": 159.9
+  }
+ ]
+}

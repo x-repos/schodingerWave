@@ -1,0 +1,9 @@
+[long] 16x16_T8: err=1.728e-03 win=1.728e-03 E_ratio=0.5798 t=1666.46s
+[long] 16x16_T16: err=2.415e-03 win=2.410e-03 E_ratio=0.0759 t=3299.28s
+[long] 16x16_T24: err=2.853e-03 win=2.901e-03 E_ratio=0.0053 t=4929.87s
+[long] 16x16_T32: err=2.983e-03 win=3.003e-03 E_ratio=0.0018 t=6530.26s
+[long] 16x16_T40: err=2.839e-03 win=2.852e-03 E_ratio=0.0010 t=8118.87s
+
+wrote /home/hoanganh_nguyen/Workspace/qwave-sponge/paper/experiments/elastic_gate_demo_long_results.json
+wrote /home/hoanganh_nguyen/Workspace/qwave-sponge/paper/experiments/elastic_gate_demo_long_fields.npz
+total wall: 8119.9s

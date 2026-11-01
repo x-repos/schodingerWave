@@ -1,0 +1,102 @@
+{
+ "script": "paper/experiments/sponge_fd_comparison.py",
+ "setup": {
+  "interior": 100,
+  "layer": 20,
+  "c": 1.0,
+  "h": 1.0,
+  "dt": 0.4,
+  "T_end": 160.0,
+  "sigma0": 0.5180816459236602,
+  "pulse_width": 3.0,
+  "reference": "3x grid, no absorber"
+ },
+ "results": {
+  "both": {
+   "max_reflection": 0.028091237891143112,
+   "energy_end": 0.0002685437174506195
+  },
+  "vonly": {
+   "max_reflection": 0.15493759476415828,
+   "energy_end": 0.032328313107822755
+  },
+  "none": {
+   "max_reflection": 0.5983078830998957,
+   "energy_end": 1.0054552944268185
+  }
+ },
+ "amplitude_scan": {
+  "both": [
+   {
+    "factor": 0.25,
+    "max_reflection": 0.07904928987567972
+   },
+   {
+    "factor": 0.5,
+    "max_reflection": 0.02658577210539318
+   },
+   {
+    "factor": 1,
+    "max_reflection": 0.028091237891143112
+   },
+   {
+    "factor": 2,
+    "max_reflection": 0.033404225672655725
+   },
+   {
+    "factor": 4,
+    "max_reflection": 0.03910409194541545
+   },
+   {
+    "factor": 8,
+    "max_reflection": 0.04488922023422619
+   }
+  ],
+  "vonly": [
+   {
+    "factor": 0.25,
+    "max_reflection": 0.1289560661519986
+   },
+   {
+    "factor": 0.5,
+    "max_reflection": 0.12657666625177427
+   },
+   {
+    "factor": 1,
+    "max_reflection": 0.15493759476415828
+   },
+   {
+    "factor": 2,
+    "max_reflection": 0.19013253371762795
+   },
+   {
+    "factor": 4,
+    "max_reflection": 0.22975656703359998
+   },
+   {
+    "factor": 8,
+    "max_reflection": 0.27547084476984024
+   }
+  ]
+ },
+ "elastic": {
+  "cp": 1.0,
+  "cs": 0.5773502691896258,
+  "rho": 1.0,
+  "sigma0": 0.5180816459236602,
+  "results": {
+   "both": {
+    "max_reflection": 0.04697103155154418,
+    "energy_end": 0.0028872882812113016
+   },
+   "vonly": {
+    "max_reflection": 0.1667325839152923,
+    "energy_end": 0.045918844536868994
+   },
+   "none": {
+    "max_reflection": 0.46476186614110765,
+    "energy_end": 1.002481549092904
+   }
+  }
+ }
+}
