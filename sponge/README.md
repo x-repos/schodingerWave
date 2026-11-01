@@ -26,14 +26,54 @@ qubit count (`lib/structured_damping.py`).
 | `paper/experiments/` | one script per result; each writes a `*_results.json` (and `*.npz` fields) |
 | `figures/` | paper figures (PDF and PNG) and plotted field data |
 
-## Environment
+## Figures
 
-Python 3.12, qiskit 1.4.5, qiskit-aer 0.16.4, numpy 2.4, scipy 1.17,
-matplotlib 3.10 (figures use a LaTeX installation for text rendering).
+**Gate-level runs.** Absorbed acoustic wave, $32\times32$ grid, 21 qubits
+(top: recovered from the quantum circuit; bottom: classical solution of the
+damped PDE; dashed lines mark the sponge layers):
+
+![Acoustic gate-level run](figures/fig6_2d_gate_level_32x32.png)
+
+Absorbed elastic wave ($\tilde v_x$), $32\times32$ grid, 25 qubits, structured damping circuit:
+
+![Elastic gate-level run](figures/elastic_fig_gatedemo_32.png)
+
+**Classical check of the sponge** (independent leapfrog solver): damping both
+fields absorbs, damping the velocity only leaves a remnant, no damping reflects:
+
+![Finite-difference comparison](figures/fig_fd_comparison.png)
+
+**Absorption quality** versus damping amplitude and layer width:
+
+![Absorption sweep](figures/fig_absorption.png)
+
+**The warped variable $p$**: profile, success probability and truncation error:
+
+![p-space analysis](figures/fig_pspace.png)
+
+**Circuit cost**: CNOTs per Trotter step, generic diagonal versus the structured damping circuit:
+
+![Gate counts](figures/fig_damping_gatecounts.png)
+
+## Environment (uv, no pip or conda needed)
+
+Install [uv](https://docs.astral.sh/uv/) once:
 
 ```
-pip install -r requirements.txt
+curl -LsSf https://astral.sh/uv/install.sh | sh      # macOS / Linux
 ```
+
+Then, from this folder, `uv run` creates the environment from `uv.lock`
+(Python 3.12, qiskit 1.4.5, qiskit-aer 0.16.4, numpy, scipy, matplotlib),
+downloading Python itself if needed, and runs the command:
+
+```
+uv run pytest -q                                      # 48 tests
+uv run python paper/experiments/sponge_absorption.py  # any experiment
+```
+
+Figures use a LaTeX installation for text rendering. `requirements.txt` is
+kept for users who prefer pip.
 
 qiskit is pinned to 1.4.5. With the flag-ancilla damping circuit, simulate
 with Aer at `optimization_level=0` and do not transpile the whole circuit
@@ -58,8 +98,8 @@ Run from this folder. Most scripts use 8 worker processes.
 Example:
 
 ```
-python paper/experiments/sponge_absorption.py               # full run
-python paper/experiments/sponge_absorption.py --fig-only    # re-plot from the JSON
+uv run python paper/experiments/sponge_absorption.py               # full run
+uv run python paper/experiments/sponge_absorption.py --fig-only    # re-plot from the JSON
 ```
 
 The 25-qubit elastic run (`elastic_gate_demo_32.py`, 1280 Trotter steps to

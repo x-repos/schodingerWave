@@ -1,0 +1,24 @@
+[project]
+name = "qwave-sponge"
+version = "1.0.0"
+description = "Sponge-layer absorbing boundaries for quantum simulation of acoustic and elastic waves by Schrodingerisation: code and data"
+readme = "README.md"
+license = { file = "LICENSE.txt" }
+authors = [{ name = "Hoang Anh Nguyen" }, { name = "Ali Tura" }]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "qiskit==1.4.5",
+    "qiskit-aer==0.16.4",
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "matplotlib==3.10.9",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
