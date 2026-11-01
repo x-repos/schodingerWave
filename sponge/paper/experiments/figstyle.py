@@ -115,8 +115,9 @@ def wavefield_grid(rows, row_labels, col_titles, vmax, edges, notes=None,
             if j == 0:
                 ax.set_ylabel(row_labels[i], labelpad=4)
             if notes and notes[i][j]:
-                ax.text(0.5, -0.025, notes[i][j], transform=ax.transAxes, ha="center",
-                        va="top", fontsize=7 if nc > 5 else 7.5, linespacing=1.1)
+                ax.annotate(notes[i][j], xy=(0.5, 0.0), xycoords="axes fraction",
+                            xytext=(0, -9.5), textcoords="offset points", ha="center",
+                            va="baseline", fontsize=7 if nc > 5 else 7.5)
             rax.append(ax)
         axs.append(rax)
     cax = fig.add_subplot(gs[:, nc])
