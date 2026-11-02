@@ -209,7 +209,7 @@ fig = plt.figure(figsize=(W, 4.15))
 gs = fig.add_gridspec(3, 7, width_ratios=[1, 1, 1, 0.14, 1, 1, 1], hspace=0.05, wspace=0.05,
                       left=0.095, right=0.995, top=0.895, bottom=0.375)
 for blk, (rr, tt, col0, ttl) in enumerate(((res, t_ac, 0, r"(a) acoustic, $v$"),
-                                           (res_e, t_el, 4, r"(b) elastic, $v_x$"))):
+                                           (res_e, t_el, 4, r"(b) elastic, $\tilde v_x$"))):
     vmax = 0.25 * np.abs(rr["both"]["frames"][40]).max()
     for i, mode in enumerate(("both", "vonly", "none")):
         for j, s_ in enumerate(tt):
