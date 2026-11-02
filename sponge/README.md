@@ -1,8 +1,8 @@
 # Sponge layers for quantum simulation of acoustic and elastic waves
 
 Code and data for the paper *Quantum simulation of dissipative acoustic and
-elastic waves by Schrödingerisation: sponge-layer absorbing boundaries and
-explicit polynomial-size circuits* (H. A. Nguyen and
+elastic waves by Schrödingerisation: absorbing boundaries and explicit
+polynomial-size circuits* (H. A. Nguyen and
 A. Tura, Colorado School of Mines).
 
 The damped wave equations (sponge absorbing layer) are written as
