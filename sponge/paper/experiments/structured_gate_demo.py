@@ -70,7 +70,8 @@ def run_one(args):
     from qiskit_aer import AerSimulator
     from scipy.sparse.linalg import expm_multiply
     from lib.evolution import get_bell_evolution_circ_strang
-    from lib.structured_damping import get_circuit_structured, damping_circuit
+    from lib.structured_damping import (get_circuit_structured, damping_circuit,
+                                        cx_count_per_gate)
     c = CASES[name]
     op, sep, z0, sch, nb = setup(c)
     steps = int(round(c["steps_per_unit"] * T))
@@ -97,9 +98,10 @@ def run_one(args):
     # per-step CX
     dt = T / steps
     wave_cx = transpile(fac(dt), basis_gates=["cx", "u"], optimization_level=1).count_ops().get("cx", 0)
-    damp_cx = transpile(damping_circuit(sch, op.sigma_blocks, nb, (c["nq"], c["nq"]), dt,
-                                        flag_ancilla=True),
-                        basis_gates=["cx", "u"], optimization_level=1).count_ops().get("cx", 0)
+    # damping: sum of per-gate syntheses (a whole-circuit transpile of the
+    # flag variant is not reliable, see lib/structured_damping.py)
+    damp_cx = cx_count_per_gate(damping_circuit(sch, op.sigma_blocks, nb,
+                                                (c["nq"], c["nq"]), dt, flag_ancilla=True))
     return dict(case=name, T=T, steps=steps, num_qubits=circ.num_qubits,
                 rel_err_slice=float(np.linalg.norm(z_slice - zT) / np.linalg.norm(zT)),
                 rel_err_window=float(np.linalg.norm(z_win - zT) / np.linalg.norm(zT)),

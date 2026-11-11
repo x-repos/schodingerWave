@@ -33,7 +33,7 @@
     "steps_per_unit": 20
    }
   },
-  "wall_s": 160.7
+  "wall_s": 159.4
  },
  "runs": [
   {
@@ -47,8 +47,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.676877244408336,
    "cx_wave_step": 218,
-   "cx_damping_step": 3646,
-   "seconds": 14.2
+   "cx_damping_step": 3376,
+   "seconds": 14.9
   },
   {
    "case": "acoustic_8x8",
@@ -61,8 +61,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.15269427861636775,
    "cx_wave_step": 218,
-   "cx_damping_step": 3646,
-   "seconds": 27.0
+   "cx_damping_step": 3376,
+   "seconds": 28.2
   },
   {
    "case": "acoustic_8x8",
@@ -75,8 +75,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.01750186159999985,
    "cx_wave_step": 218,
-   "cx_damping_step": 3646,
-   "seconds": 39.0
+   "cx_damping_step": 3376,
+   "seconds": 40.0
   },
   {
    "case": "acoustic_8x8",
@@ -89,8 +89,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.003626626973505474,
    "cx_wave_step": 218,
-   "cx_damping_step": 3646,
-   "seconds": 49.8
+   "cx_damping_step": 3376,
+   "seconds": 50.9
   },
   {
    "case": "elastic_8x8",
@@ -103,8 +103,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.8326726851152236,
    "cx_wave_step": 1150,
-   "cx_damping_step": 3148,
-   "seconds": 50.5
+   "cx_damping_step": 2936,
+   "seconds": 51.3
   },
   {
    "case": "elastic_8x8",
@@ -117,7 +117,7 @@
    "flag_leak": 0.0,
    "energy_ref": 0.37222888564280954,
    "cx_wave_step": 1150,
-   "cx_damping_step": 3148,
+   "cx_damping_step": 2936,
    "seconds": 87.9
   },
   {
@@ -131,8 +131,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.12334683486623309,
    "cx_wave_step": 1150,
-   "cx_damping_step": 3148,
-   "seconds": 124.8
+   "cx_damping_step": 2936,
+   "seconds": 123.8
   },
   {
    "case": "elastic_8x8",
@@ -145,8 +145,8 @@
    "flag_leak": 0.0,
    "energy_ref": 0.04496920076825218,
    "cx_wave_step": 1150,
-   "cx_damping_step": 3148,
-   "seconds": 159.9
+   "cx_damping_step": 2936,
+   "seconds": 158.8
   }
  ]
 }

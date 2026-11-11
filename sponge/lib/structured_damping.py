@@ -32,12 +32,23 @@ and bisects where the fit fails (clipped nodes, stagger offsets), down to
 single nodes if needed.  The resulting circuit equals the DiagonalGate to
 machine precision (tests/test_structured_damping.py).
 
-CAUTION (qiskit 1.4.5): transpile the flag-ancilla variant with
-optimization_level=0.  At levels >= 1 the transpiler changes the unitary of
-the full Schrodingerised circuit (measured: 2e-2 -- 1.7e-1 state error on a
-1D sponge), although the circuit itself is exact (Statevector evolution
-and level-0 transpilation agree with the dense diagonal to 1e-15).  The
-ancilla-free variant is unaffected.
+CAUTION (qiskit 1.4.5), flag-ancilla variant.  The circuit itself is exact
+(Statevector evolution and Aer at optimization_level=0 agree with the dense
+diagonal to 1e-15).  Two transpiler properties matter:
+
+* By default transpile() assumes every qubit starts in |0> and borrows
+  qubits that are still idle as clean ancillas when it synthesises
+  multi-controlled gates.  A damping circuit transpiled on its own is then
+  not the same unitary.  Pass qubits_initially_zero=False to compile the
+  whole circuit exactly.
+* For the full Schrodingerised circuit, some optimisation levels return the
+  final state with a different global phase (measured on a 1D sponge:
+  2e-2 -- 6e-1 raw state difference, 1e-15 after removing the phase).  It is
+  physically irrelevant but enters a direct statevector comparison.
+
+The experiments therefore simulate with Aer at optimization_level=0 and
+report CX counts with cx_count_per_gate (below).  The ancilla-free variant
+compiles exactly as a whole.
 
 Qubit conventions follow Schrodingerisation.get_circuit: system qubits
 0..n_sys-1 little-endian with system index s = block*M + ix*Ny + iy
@@ -45,6 +56,7 @@ Qubit conventions follow Schrodingerisation.get_circuit: system qubits
 n_sys..n_sys+n_p-1 with index k = sum 2^b k_b.
 """
 
+from functools import lru_cache
 from itertools import combinations
 
 import numpy as np
@@ -298,6 +310,44 @@ def damping_circuit(sch, sigma_blocks, num_blocks, num_qubits_axes, tau,
                 if use_flag:
                     circ.append(MCXGate(len(pq), ctrl_state=st), pq + [anc])
     return circ
+
+
+@lru_cache(maxsize=None)
+def _cx_of(kind, k):
+    """CX count of one k-controlled phase ('p') or NOT ('x') gate, transpiled
+    on its own to {cx, u}; the synthesis is verified exact for k <= 10."""
+    from qiskit import QuantumCircuit, transpile
+    from qiskit.circuit.library import PhaseGate, MCXGate
+    qc = QuantumCircuit(k + 1)
+    if kind == "p":
+        if k == 0:
+            qc.p(0.3, 0)
+        else:
+            qc.append(PhaseGate(0.3).control(k), range(k + 1))
+    else:
+        qc.append(MCXGate(k), range(k + 1))
+    t = transpile(qc, basis_gates=["cx", "u"], optimization_level=1)
+    if k <= 10:
+        from qiskit.quantum_info import Operator
+        assert np.abs(Operator(qc).data - Operator(t).data).max() < 1e-9, (kind, k)
+    return int(t.count_ops().get("cx", 0))
+
+
+def cx_count_per_gate(circ):
+    """CX count of a damping circuit as the sum of per-gate syntheses (the
+    count reported in the paper for the flag-ancilla variant).  Open
+    controls cost X gates only, so the control state does not matter."""
+    tot = 0
+    for inst in circ.data:
+        op = inst.operation
+        nq = op.num_qubits
+        if op.name in ("p", "u1"):
+            continue
+        if op.name.startswith("mcx") or op.name in ("cx", "ccx"):
+            tot += _cx_of("x", nq - 1)
+        else:   # controlled phase family
+            tot += _cx_of("p", nq - 1)
+    return tot
 
 
 def get_circuit_structured(sch, z0, T, num_steps, system_circuit_factory,

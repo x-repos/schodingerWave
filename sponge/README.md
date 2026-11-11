@@ -22,7 +22,7 @@ qubit count (`lib/structured_damping.py`).
 | `lib/elastic_sponge.py` | elastic sponge `ElasticSponge2d` |
 | `lib/schrodingerisation.py` | warped transform, Fourier modes in `p`, recovery, Qiskit circuits |
 | `lib/structured_damping.py` | polynomial-size damping circuit (ancilla-free and one-flag-ancilla variants) |
-| `tests/` | unit tests (`pytest -q tests`, 48 tests) |
+| `tests/` | unit tests (`pytest -q tests`, 50 tests) |
 | `paper/experiments/` | one script per result; each writes a `*_results.json` (and `*.npz` fields) |
 | `figures/` | paper figures (PDF and PNG) and plotted field data |
 
@@ -68,7 +68,7 @@ Then, from this folder, `uv run` creates the environment from `uv.lock`
 downloading Python itself if needed, and runs the command:
 
 ```
-uv run pytest -q                                      # 48 tests
+uv run pytest -q                                      # 50 tests
 uv run python paper/experiments/sponge_absorption.py  # any experiment
 ```
 
@@ -76,8 +76,9 @@ Figures use a LaTeX installation for text rendering. `requirements.txt` is
 kept for users who prefer pip.
 
 qiskit is pinned to 1.4.5. With the flag-ancilla damping circuit, simulate
-with Aer at `optimization_level=0` and do not transpile the whole circuit
-(see Appendix C of the paper).
+with Aer at `optimization_level=0`. To transpile a damping circuit on its
+own, pass `qubits_initially_zero=False`; CNOT counts in the paper are sums
+of per-gate syntheses (`cx_count_per_gate`, see Appendix C of the paper).
 
 ## Reproducing the results
 

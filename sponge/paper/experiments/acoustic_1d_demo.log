@@ -8,11 +8,11 @@ refl 8 0.5 1.30e-02 E 1.7e-04
 refl 8 1.0 2.59e-04 E 5.9e-08
 refl 8 2.0 2.02e-04 E 4.7e-09
 refl 8 4.0 4.05e-04 E 1.3e-08
-refl 16 0.25 1.37e-01 E 1.9e-02
-refl 16 0.5 1.93e-02 E 3.7e-04
-refl 16 1.0 4.13e-04 E 1.7e-07
-refl 16 2.0 2.53e-05 E 7.3e-14
+refl 16 0.25 1.38e-01 E 1.9e-02
+refl 16 0.5 1.94e-02 E 3.7e-04
+refl 16 1.0 4.14e-04 E 1.7e-07
+refl 16 2.0 2.52e-05 E 7.3e-14
 refl 16 4.0 5.05e-05 E 2.3e-15
-gate {'T': 10.0, 'steps': 200, 'num_qubits': 17, 'rel_err': 0.0011077027764880838, 'energy': 0.9999999999999896, 'flag_leak': 0.0}
-gate {'T': 20.0, 'steps': 400, 'num_qubits': 17, 'rel_err': 0.0022003871021821025, 'energy': 0.9992455206763168, 'flag_leak': 0.0}
-gate {'T': 30.0, 'steps': 600, 'num_qubits': 17, 'rel_err': 0.005059531934167515, 'energy': 0.14641628353097821, 'flag_leak': 0.0}
+gate {'T': 10.0, 'steps': 200, 'num_qubits': 17, 'rel_err': 0.0011077027764880838, 'energy': 0.9999999999999896, 'flag_leak': 0.0, 'cx_damping_step': 3798}
+gate {'T': 20.0, 'steps': 400, 'num_qubits': 17, 'rel_err': 0.0022003871021821025, 'energy': 0.9992455206763168, 'flag_leak': 0.0, 'cx_damping_step': 3798}
+gate {'T': 30.0, 'steps': 600, 'num_qubits': 17, 'rel_err': 0.005059531934167515, 'energy': 0.14641628353097821, 'flag_leak': 0.0, 'cx_damping_step': 3798}

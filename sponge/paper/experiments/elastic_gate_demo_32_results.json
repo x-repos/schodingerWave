@@ -163,5 +163,6 @@
     }
   ],
   "threads": 40,
-  "K": 40
+  "K": 40,
+  "cx_damping_step": 8448
 }

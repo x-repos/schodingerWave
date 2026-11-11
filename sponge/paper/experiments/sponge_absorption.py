@@ -5,7 +5,7 @@ interior window (layers excluded), with the same initial data evolved on a
 4x enlarged 128x128 grid with NO absorber (hard wall far away, centred
 embedding) -- until T = 40 the enlarged-domain boundary reflections cannot
 reach the window, so the windowed difference is the spurious reflection
-from the sponge.  Reported: max over T in {8,...,40} of the windowed L2
+from the sponge.  Reported: max over T in {10,20,30,40} of the windowed L2
 error with ||z0|| = 1 (absolute reflected amplitude), and the energy left
 in the 32x32 domain at T = 40.
 
@@ -35,7 +35,7 @@ from scipy.sparse.linalg import expm_multiply  # noqa: E402
 NQ, NQ_REF = 5, 7
 N, NR = 2**NQ, 2**NQ_REF
 OFF = (NR - N) // 2
-TIMES = [8.0, 16.0, 24.0, 32.0, 40.0]
+TIMES = [10.0, 20.0, 30.0, 40.0]
 NPMLS = [4, 8, 12]
 FACTORS = [0.25, 0.5, 1.0, 2.0, 4.0]
 CS = 1 / np.sqrt(3)
@@ -85,8 +85,9 @@ def reference(kind):
         A = op.generator_undamped().tocsc()
     z0 = state(kind, NR, op)
     nrm = np.linalg.norm(z0)
+    # linspace(0, T_end, len(TIMES) + 1) = [0] + TIMES; drop t = 0
     snaps = expm_multiply(A, z0 / nrm, start=0, stop=TIMES[-1],
-                          num=len(TIMES), endpoint=True)
+                          num=len(TIMES) + 1, endpoint=True)[1:]
     return kind, [s for s in snaps]
 
 
@@ -101,8 +102,8 @@ def job(args):
     z0 = state(kind, N, op)
     z0 = z0 / np.linalg.norm(z0)
     A = op.generator().tocsc()
-    snaps = expm_multiply(A, z0, start=0, stop=TIMES[-1], num=len(TIMES),
-                          endpoint=True)
+    snaps = expm_multiply(A, z0, start=0, stop=TIMES[-1], num=len(TIMES) + 1,
+                          endpoint=True)[1:]
     errs = {}
     for T, zs, zr in zip(TIMES, snaps, refs):
         a = window(kind, zs, N, 0, npml)

@@ -63,7 +63,7 @@ def circuits(sponge, sep, sch):
     from qiskit.circuit.library import QFTGate
     from qiskit_aer import AerSimulator
     from lib.evolution import get_bell_evolution_circ_strang
-    from lib.structured_damping import damping_circuit
+    from lib.structured_damping import damping_circuit, cx_count_per_gate
     n_sys = sponge.num_qubits
     n = n_sys + N_P + 1                       # + flag (most significant)
     sys_q = list(range(n_sys))
@@ -92,7 +92,7 @@ def circuits(sponge, sep, sch):
     snap = QuantumCircuit(n)
     snap.compose(half, inplace=True)
     snap.append(QFTGate(N_P), p_q)
-    return sim, n, compile_, block, compile_(snap)
+    return sim, n, compile_, block, compile_(snap), cx_count_per_gate(full)
 
 
 def run_block(sim, n, body, sv):
@@ -108,7 +108,7 @@ def main():
     calibrate = "--calibrate" in sys.argv
     t0 = time.time()
     sponge, sep, z0, sch = build()
-    sim, n, compile_, block, snap = circuits(sponge, sep, sch)
+    sim, n, compile_, block, snap, cx_damp = circuits(sponge, sep, sch)
     W0 = sch.initial_w(z0).ravel()
     norm0 = np.linalg.norm(W0)
     sv = np.zeros(2**n, dtype=complex)
@@ -166,7 +166,8 @@ def main():
                   f"win={r['rel_error_window']:.3e} E={r['energy_ratio_ref']:.2e} "
                   f"leak={leak:.1e} wall={r['wall_s']}s", flush=True)
             json.dump(dict(script=os.path.basename(__file__), runs=runs,
-                           threads=THREADS, K=K), open(OUT_JSON, "w"), indent=2)
+                           threads=THREADS, K=K, cx_damping_step=cx_damp),
+                      open(OUT_JSON, "w"), indent=2)
             np.savez_compressed(OUT_NPZ, **fields)
         else:
             print(f"  step {step}/{steps_total} ({time.time()-t1:.0f}s/block)", flush=True)

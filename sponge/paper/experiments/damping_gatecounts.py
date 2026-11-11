@@ -15,7 +15,6 @@ import json
 import os
 import sys
 import time
-from functools import lru_cache
 from multiprocessing import get_context
 
 os.environ.setdefault("OMP_NUM_THREADS", "1")
@@ -32,37 +31,9 @@ MAX_GENERIC_N = 14
 OUT = os.path.join(HERE, "damping_gatecounts_results.json")
 
 
-@lru_cache(maxsize=None)
-def cx_of(kind, k):
-    from qiskit import QuantumCircuit, transpile
-    from qiskit.circuit.library import PhaseGate, MCXGate
-    qc = QuantumCircuit(k + 1)
-    if kind == "p":
-        if k == 0:
-            qc.p(0.3, 0)
-        else:
-            qc.append(PhaseGate(0.3).control(k), range(k + 1))
-    else:
-        qc.append(MCXGate(k), range(k + 1))
-    t = transpile(qc, basis_gates=["cx", "u"], optimization_level=1)
-    if k <= 10:   # verify this per-gate synthesis is exact
-        from qiskit.quantum_info import Operator
-        assert np.abs(Operator(qc).data - Operator(t).data).max() < 1e-9, (kind, k)
-    return int(t.count_ops().get("cx", 0))
-
-
 def count_structured(circ):
-    tot = 0
-    for inst in circ.data:
-        op = inst.operation
-        nq = op.num_qubits
-        if op.name in ("p", "u1"):
-            continue
-        if op.name.startswith("mcx") or op.name in ("cx", "ccx"):
-            tot += cx_of("x", nq - 1)
-        else:   # controlled phase family
-            tot += cx_of("p", nq - 1)
-    return tot
+    from lib.structured_damping import cx_count_per_gate
+    return cx_count_per_gate(circ)
 
 
 def build(kind, nq):
@@ -107,10 +78,11 @@ def job(args):
     res["cx_wave_step"] = int(tw.count_ops().get("cx", 0))
     # exact counts by full transpile (the per-gate table is a cross-check)
     # Ancilla-free variant: whole-circuit transpile (verified exact).
-    # Flag variant: qiskit 1.4.5's whole-circuit transpile does NOT preserve
-    # its action on the flag-|0> subspace (every gate compiles exactly on its
-    # own), so its count is the per-gate synthesis sum (each gate verified
-    # exact in cx_of), i.e. cx_structured_flag.
+    # Flag variant: by default transpile() assumes all qubits start in |0>
+    # and borrows idle ones as clean ancillas, so the circuit transpiled on
+    # its own is not the same unitary (qubits_initially_zero=False avoids
+    # this; see lib/structured_damping.py).  Its count is the per-gate
+    # synthesis sum (each gate verified exact), i.e. cx_structured_flag.
     tc = transpile(direct, basis_gates=["cx", "u"], optimization_level=1)
     res["cx_full_direct"] = int(tc.count_ops().get("cx", 0))
     res["cx_full_flag"] = res["cx_structured_flag"]

@@ -39,14 +39,33 @@ def test_acoustic_damping_circuit_exact(flag):
     assert np.abs(U - np.diag(d)).max() < 1e-10
 
 
-def test_elastic_damping_circuit_exact():
+@pytest.mark.parametrize("flag", [False, True])
+def test_elastic_damping_circuit_exact(flag):
     es = ElasticSponge2d(2, 2, npml=1, cp=1.0, cs=0.5, sigma_max=0.9)
     sch = Schrodingerisation(es.hamiltonian_parts(), num_qubits_p=2, p_max=5.0)
     tau = 0.21
-    circ = damping_circuit(sch, es.sigma_blocks, 8, (2, 2), tau)
+    circ = damping_circuit(sch, es.sigma_blocks, 8, (2, 2), tau, flag_ancilla=flag)
     U = Operator(circ).data
     d = _target_diag(sch, es.sigma_blocks, tau)
+    if flag:   # ancilla is the most significant qubit; restrict to |0>
+        U = U[:len(d), :len(d)]
     assert np.abs(U - np.diag(d)).max() < 1e-10
+
+
+def test_flag_circuit_whole_transpile_needs_qubits_initially_zero_false():
+    """Transpiled on its own, the flag damping circuit is the same unitary
+    only when the transpiler is told not to assume |0> inputs."""
+    from qiskit import transpile
+    es = ElasticSponge2d(2, 2, npml=1, cp=1.0, cs=0.5, sigma_max=0.9)
+    sch = Schrodingerisation(es.hamiltonian_parts(), num_qubits_p=2, p_max=5.0)
+    circ = damping_circuit(sch, es.sigma_blocks, 8, (2, 2), 0.21, flag_ancilla=True)
+    U = Operator(circ).data
+    t = transpile(circ, basis_gates=["cx", "u"], optimization_level=1,
+                  qubits_initially_zero=False)
+    V = Operator(t).data
+    k = np.argmax(np.abs(U))
+    V = V * (U.flat[k] / V.flat[k])          # remove the global phase
+    assert np.abs(V - U).max() < 1e-10
 
 
 def test_separable_components_default_sponge():

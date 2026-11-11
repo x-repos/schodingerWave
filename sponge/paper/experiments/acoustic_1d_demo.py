@@ -52,10 +52,12 @@ def reflection(args):
     ref = WaveEquationEvolution(NX_REF, dim=1, diff_type="forward", periodic=False)
     z0 = state(op, N); z0 /= np.linalg.norm(z0)
     r0 = state(None, NR); r0 /= np.linalg.norm(r0)
+    # linspace(0, T_end, len(TIMES) + 1) = [0] + TIMES; drop t = 0
     zs = expm_multiply(op.generator().tocsc(), z0, start=0, stop=TIMES[-1],
-                       num=len(TIMES), endpoint=True)
+                       num=len(TIMES) + 1, endpoint=True)[1:]
     Ar = (-1j * ref.to_matrix(sparse=True)).tocsc()
-    rs = expm_multiply(Ar, r0, start=0, stop=TIMES[-1], num=len(TIMES), endpoint=True)
+    rs = expm_multiply(Ar, r0, start=0, stop=TIMES[-1], num=len(TIMES) + 1,
+                       endpoint=True)[1:]
     errs = [float(np.linalg.norm(window(a, N, 0, nl) - window(b, NR, OFF, nl)))
             for a, b in zip(zs, rs)]
     return dict(npml=nl, factor=f, sigma_max=float(f * s0), reflection=max(errs),
@@ -68,7 +70,8 @@ def gate(T):
     from qiskit_aer import AerSimulator
     from lib import WaveEquationSponge1d, Schrodingerisation
     from lib.evolution import get_bell_evolution_circ_strang
-    from lib.structured_damping import get_circuit_structured
+    from lib.structured_damping import (get_circuit_structured, damping_circuit,
+                                        cx_count_per_gate)
     op = WaveEquationSponge1d(NX, npml=8)
     z0 = state(op, N); z0 /= np.linalg.norm(z0)
     sch = Schrodingerisation(op.hamiltonian_parts(), num_qubits_p=9, p_max=16.0)
@@ -78,8 +81,8 @@ def gate(T):
                                   op.sigma_blocks, 2, (NX,), flag_ancilla=True)
     circ.save_statevector()
     sim = AerSimulator(method="statevector")
-    # optimization_level=0: qiskit 1.4.5's optimising transpiler corrupts the
-    # flag-ancilla circuit (see lib/structured_damping.py)
+    # optimization_level=0: multi-controlled gates run natively in Aer; other
+    # levels can change the global phase (see lib/structured_damping.py)
     sv = np.asarray(sim.run(transpile(circ, sim, optimization_level=0)).result().get_statevector())
     dim = 2**(circ.num_qubits - 1)
     W = sv[:dim].reshape(sch.Np, -1) * circ.metadata["norm0"]
@@ -89,7 +92,9 @@ def gate(T):
     return dict(T=T, steps=steps, num_qubits=circ.num_qubits,
                 rel_err=float(np.linalg.norm(z - zr) / np.linalg.norm(zr)),
                 energy=float(np.linalg.norm(zr) ** 2),
-                flag_leak=float(np.linalg.norm(sv[dim:])))
+                flag_leak=float(np.linalg.norm(sv[dim:])),
+                cx_damping_step=cx_count_per_gate(damping_circuit(
+                    sch, op.sigma_blocks, 2, (NX,), T / steps, flag_ancilla=True)))
 
 
 if __name__ == "__main__":
