@@ -141,5 +141,17 @@ fig.savefig(os.path.join(ROOT, 'figures', 'fig6_2d_gate_level_32x32.png'), dpi=1
 np.savez(os.path.join(ROOT, 'figures', 'fig6_data.npz'), fields_gate=np.array(fields_gate),
          fields_ref=np.array(fields_ref), errors=np.array(errors),
          energies=np.array(energies), times=np.array(times))
+import json
+import qiskit
+import qiskit_aer
+json.dump(dict(script='paper/experiments/acoustic_gate_32x32.py', grid='32x32',
+               num_qubits=n, n_sys=n_sys, n_p=n_p, p_max=p_max, npml=npml, dt=dt,
+               sigma_max=float(sponge.sigma_blocks.max() / 2), pulse_width=1.5,
+               versions=dict(qiskit=qiskit.__version__, qiskit_aer=qiskit_aer.__version__),
+               runs=[dict(T=float(T), steps=int(round(T / dt)), rel_error=float(e),
+                          energy_ref=float(E)) for T, e, E in zip(times, errors, energies)],
+               wall_s=round(time.time() - t0, 1)),
+          open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'acoustic_gate_32x32_results.json'), 'w'), indent=1)
 print(f'TOTAL {time.time() - t0:.0f}s; errors: '
       + ', '.join(f'{e:.2e}' for e in errors), flush=True)

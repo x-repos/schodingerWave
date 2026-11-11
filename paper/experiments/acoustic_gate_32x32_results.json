@@ -1,0 +1,37 @@
+{
+ "script": "paper/experiments/acoustic_gate_32x32.py",
+ "grid": "32x32",
+ "num_qubits": 21,
+ "n_sys": 12,
+ "n_p": 9,
+ "p_max": 18.0,
+ "npml": 8,
+ "dt": 0.1,
+ "sigma_max": 1.2952041148091507,
+ "pulse_width": 1.5,
+ "versions": {
+  "qiskit": "1.4.5",
+  "qiskit_aer": "0.16.4"
+ },
+ "runs": [
+  {
+   "T": 8.0,
+   "steps": 80,
+   "rel_error": 0.007690788997500239,
+   "energy_ref": 0.9727983464870116
+  },
+  {
+   "T": 16.0,
+   "steps": 160,
+   "rel_error": 0.017383451917671686,
+   "energy_ref": 0.1264278467355984
+  },
+  {
+   "T": 24.0,
+   "steps": 240,
+   "rel_error": 0.014460534990114396,
+   "energy_ref": 0.001252387203714201
+  }
+ ],
+ "wall_s": 600.2
+}

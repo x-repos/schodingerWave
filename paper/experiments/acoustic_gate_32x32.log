@@ -1,0 +1,6 @@
+blocks transpiled in 3s (wave step: 983 ops)
+assembly guard vs get_circuit: 6.83e-15
+T=  8.0: 80 steps, rel err = 7.691e-03, ||z||^2 = 9.73e-01  (77s)
+T= 16.0: 160 steps, rel err = 1.738e-02, ||z||^2 = 1.26e-01  (157s)
+T= 24.0: 240 steps, rel err = 1.446e-02, ||z||^2 = 1.25e-03  (334s)
+TOTAL 600s; errors: 7.69e-03, 1.74e-02, 1.45e-02
