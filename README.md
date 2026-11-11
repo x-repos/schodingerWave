@@ -109,6 +109,14 @@ The 25-qubit elastic run (`elastic_gate_demo_32.py`, 1280 Trotter steps to
 `elastic_gate_demo_32.log`) is included, so the figure can be re-plotted
 without re-running it. All other scripts run on a laptop in minutes.
 
-## Licence
+## Licence and acknowledgement
 
 Apache 2.0 (`LICENSE.txt`).
+
+`lib/op_library.py` (unmodified) and `lib/evolution.py` (modified: projector
+controls and a second-order Strang product were added) come from the
+Apache-2.0 code *hamiltonian-simulation-for-hyperbolic-pde* that accompanies
+Y. Sato, R. Kondo, I. Hamamura, T. Onodera and N. Yamamoto, "Hamiltonian
+simulation for hyperbolic partial differential equations by scalable quantum
+circuits", Phys. Rev. Research 6, 033246 (2024). Please cite that paper as
+well if you use these modules.

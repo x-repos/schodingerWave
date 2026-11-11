@@ -1,6 +1,10 @@
 # qwave-sponge: sponge-layer (complex absorbing potential) boundaries for
 # explicit-circuit quantum simulation of acoustic and elastic waves.
 #
+# op_library.py (unmodified) and evolution.py (modified, see its header)
+# come from "hamiltonian-simulation-for-hyperbolic-pde" by Sato et al.,
+# Phys. Rev. Research 6, 033246 (2024), Apache License 2.0.
+#
 # op_library.py, evolution.py, acoustic_sponge.py (absorbing.py upstream),
 # schrodingerisation.py are
 # vendored byte-identical from https://github.com/x-repos/qawave-cpml @ a13b82b

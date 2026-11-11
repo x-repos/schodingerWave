@@ -1,3 +1,9 @@
+# Based on lib/evolution.py of "hamiltonian-simulation-for-hyperbolic-pde"
+# by Y. Sato, R. Kondo, I. Hamamura, T. Onodera and N. Yamamoto (Apache
+# License 2.0; Phys. Rev. Research 6, 033246 (2024)).  Modified here:
+# projector characters (s00/s11) are supported as 0/1-controls of the
+# rotation, and get_bell_evolution_circ_strang (palindromic second-order
+# product) was added.
 import cmath
 
 

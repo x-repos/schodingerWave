@@ -28,4 +28,4 @@ elastic 12 0.5 3.97e-02 E40 4.33e-04
 elastic 12 1.0 5.63e-02 E40 3.64e-04
 elastic 12 2.0 6.86e-02 E40 3.93e-04
 elastic 12 4.0 7.40e-02 E40 4.28e-04
-wrote /Users/ben/Workspace/qWave/qwave-sponge/figures/fig_absorption.{pdf,png}
+wrote figures/fig_absorption.{pdf,png}
