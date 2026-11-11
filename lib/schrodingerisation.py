@@ -37,7 +37,7 @@ import scipy.sparse as sp
 from scipy.linalg import expm
 from scipy.sparse.linalg import expm_multiply, eigsh
 
-from .absorbing import split_generator
+from .acoustic_sponge import split_generator
 
 
 def warping_profile(p, kind='cubic'):

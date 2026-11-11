@@ -16,8 +16,8 @@ qubit count (`lib/structured_damping.py`).
 | path | content |
 |---|---|
 | `lib/op_library.py`, `lib/evolution.py` | difference operators as qubit strings; Bell-basis term circuits, Strang splitting |
-| `lib/absorbing.py` | damping profile `pml_sigma_profile`, acoustic sponge `WaveEquationSponge2d` |
-| `lib/sponge1d.py` | one-dimensional acoustic sponge |
+| `lib/acoustic_sponge.py` | damping profile `pml_sigma_profile`, acoustic sponge `WaveEquationSponge2d` |
+| `lib/acoustic_sponge1d.py` | one-dimensional acoustic sponge |
 | `lib/elastic.py`, `lib/elastic_separated.py` | symmetrised velocity–stress encoding of the isotropic elastic equations |
 | `lib/elastic_sponge.py` | elastic sponge `ElasticSponge2d` |
 | `lib/schrodingerisation.py` | warped transform, Fourier modes in `p`, recovery, Qiskit circuits |

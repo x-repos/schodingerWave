@@ -1,3 +1,24 @@
+# Python
 __pycache__/
 *.pyc
 .pytest_cache/
+.ipynb_checkpoints/
+
+# LaTeX build artifacts (main.pdf is tracked deliberately)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/*Notes.bib
+
+# experiment scratch
+paper/experiments/*.log
+*.npz.tmp
+
+# OS
+.DS_Store

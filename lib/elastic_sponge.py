@@ -13,7 +13,7 @@ semidefinite and the Schrodingerised recovery has no threshold.
 import numpy as np
 import scipy.sparse as sp
 
-from .absorbing import pml_sigma_profile
+from .acoustic_sponge import pml_sigma_profile
 from .elastic import ElasticWaveEvolution2d
 
 
