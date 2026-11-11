@@ -28,7 +28,7 @@ Recipe (sign conventions stated explicitly):
 
 The kink of e^{-|p|} at p = 0 makes the p-discretisation only first order;
 profile='cubic' replaces it on (-1, 0) by the C^1 cubic of Jin-Liu-Ma
-(arXiv:2402.14696, Remark 4.9), restoring O(dp^2) while keeping
+(SIAM J. Numer. Anal. 63 (2025), Remark 4.5), restoring O(dp^2) while keeping
 g(p) = e^{-p} exactly for p >= 0 (so the recovery formula is unchanged).
 """
 

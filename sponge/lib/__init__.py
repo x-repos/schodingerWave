@@ -5,6 +5,8 @@
 # vendored byte-identical from https://github.com/x-repos/qawave-cpml @ a13b82b
 # (absorbing.py also carries the CPML classes; only the sponge, the
 # separated-block op strings and the profile helpers are used here).
+# One docstring reference in schrodingerisation.py was corrected afterwards
+# (Jin-Liu-Ma: Remark 4.5 of the journal version).
 # elastic.py, elastic_separated.py are vendored byte-identical from
 # qwave-elastic @ 3038d99; elastic_sponge.py is ElasticSponge2d extracted
 # from qwave-elastic/elib/elastic_cpml.py.
